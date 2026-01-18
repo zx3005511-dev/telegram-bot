@@ -18,8 +18,7 @@ async def gold(update: Update, context: ContextTypes.DEFAULT_TYPE):
         response = requests.get(GOLD_API, timeout=10)
         data = response.json()
 
-        price = data.get("gold") or data.get("price") or data[0][1]
-
+        price = data[0][1]
 await update.message.reply_text(f"📊 سعر الذهب الآن: {price}$")
 
     except Exception:
